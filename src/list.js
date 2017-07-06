@@ -7,11 +7,16 @@ constructor(props) {
     items: props.items,
     newListItemInput: ""
   };
+
+  if(!this.state.items) {
+    this.state.items = [];
+  }
+
   this.updateNewListItemInput = this.updateNewListItemInput.bind(this);
 }
-  listItem(itemText) {
+  listItem(itemText, key) {
     return (
-      <li>
+      <li key={key}>
         <span>{itemText}</span>
       </li>
     );

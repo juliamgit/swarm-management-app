@@ -9,8 +9,8 @@ class App extends Component {
         <header>
           <h1>Swarm Management App</h1>
         </header>
-        <List items={["Item 1"]} heading="Swarm Items" textBoxLabel="Add New Swarm Item"/>
-        <List items={["SecondList Item 1"]} heading="Annoyance Items" textBoxLabel="Add New Annoyance Item"/>
+        <List items={[]} heading="Swarm Items" textBoxLabel="Add New Swarm Item"/>
+        <List items={[]} heading="Annoyance Items" textBoxLabel="Add New Annoyance Item"/>
       </div>
     );
   }
