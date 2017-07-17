@@ -43,37 +43,54 @@ describe('Item List', () => {
   });
 });
 
-describe('when adding text to the input', () => {
-  it('renders the text in the input', () => {
-    const text = "cats are awesome";
-    const wrapper = shallow(<List/>);
-    const input = wrapper.find("input");
-    input.simulate("change", {target: {value: text}});
-    const updatedInput = wrapper.find("input");
-    expect(updatedInput.prop("value")).toEqual(text);
-  });
-});
 
-describe('when clicking the button', () => {
+
+
+describe('when adding text to the input', () => {
   const text = "cats are awesome";
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(<List/>);
     const input = wrapper.find("input");
-    const button = wrapper.find("button");
     input.simulate("change", {target: {value: text}});
-    button.simulate("click");
   });
 
-  it('appends the inputted text to the list', () => {
-    const list = wrapper.find("li");
-    expect(list).toHaveLength(1);
-    expect(list.at(0)).toHaveText(text);
-  });
-
-  it('clears the text from the input box', () => {
+  it('renders the text in the input', () => {
     const updatedInput = wrapper.find("input");
-    expect(updatedInput.prop("value")).toEqual("");
+    expect(updatedInput.prop("value")).toEqual(text);
+  });
+
+  describe('when clicking the button', () => {
+    beforeEach(() => {
+      const button = wrapper.find("button");
+      button.simulate("click");
+    });
+
+    it('appends the inputted text to the list', () => {
+      const list = wrapper.find("li");
+      expect(list).toHaveLength(1);
+      expect(list.at(0)).toHaveText(text);
+    });
+    it('clears the text from the input box', () => {
+      const updatedInput = wrapper.find("input");
+      expect(updatedInput.prop("value")).toEqual("");
+    });
+  });
+});
+
+describe('when no text is entered', () => {
+    let wrapper;
+    wrapper = shallow(<List/>);
+
+  describe('when clicking the button', () => {
+    beforeEach(() => {
+      const button = wrapper.find("button");
+      button.simulate("click");
+    });
+    it("doesn't apend the inputted text to the list", () => {
+      const list = wrapper.find("li");
+      expect(list).toBeEmpty();
+    });
   });
 });

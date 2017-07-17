@@ -23,7 +23,7 @@ describe('the Swarm Item List', () => {
 });
 
 describe('the Annoyances List', () => {
-  it('renders first with the correct heading', () => {
+  it('renders second with the correct heading', () => {
     expect(list.at(1)).toHaveProp("heading", "Annoyance Items");
   });
   it('initially renders with no items', () => {

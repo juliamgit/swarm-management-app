@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import List from "./list"
+import List from './list';
 
 class App extends Component {
 
@@ -9,8 +9,8 @@ class App extends Component {
         <header>
           <h1>Swarm Management App</h1>
         </header>
-        <List items={[]} heading="Swarm Items" textBoxLabel="Add New Swarm Item"/>
-        <List items={[]} heading="Annoyance Items" textBoxLabel="Add New Annoyance Item"/>
+        <List items={[]} heading="Swarm Items" textBoxLabel="Add New Swarm Item" />
+        <List items={[]} heading="Annoyance Items" textBoxLabel="Add New Annoyance Item" />
       </div>
     );
   }
